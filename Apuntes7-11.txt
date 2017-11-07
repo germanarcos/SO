@@ -1,0 +1,50 @@
+Búsqueda:
+	comando whereis
+		simple
+		whereis [opciones] fichero[...]
+			-b busca ejecutables(binary)
+			-m busca manuales
+			-s busca códigos fuente
+	comando find
+		find dir_inicio [opciones]
+			Acotar la busqueda
+				(Se unen mediante & logico por lo que todas deben ser verdad)
+				-name nombre 	(pueden utilizarse metacaracteres pero es necesario acotar el nombre si se hace)
+								acotar sirve para que el shell no entienda el metacaracter pero el comando find si
+				-type tipo (f,d,l,c,b)
+					f: file
+					d: directory
+					l: symbolic link
+					c: character(unbuffered) special
+					b: block (buffered) special
+					solo una letra
+				-user usuario(nombre o número)
+					Elementos que sean propiedad del usuario
+				-group grupo(nombre o número)
+					Elementos que sean propiedad del grupo
+				-inum número
+					Sirve para buscar enlaces duros a una zona de datos(tienen el mismo inodo)
+				-links[+|-| ] número (enlaces duros)
+					-link  num	: exactamente num de enlaces duros
+					-link +num	: mayor estricto que num enlaces duros
+					-link -num	: menor estricto que num enlaces duros
+					Utilizarlo solo para ficheros, no para directorios
+				-size[+|-| ] numero[b(bloques, por defecto)| c(bytes)|k|M|G](Tamaño)
+				-perm permisos:
+					(coincidencia exacta en octal)
+				-perm -permisos
+					(coincidencia por mascara en octal: todos los indicados)
+				-perm /permisos
+					(coincidencia por mascara en octal: cualquiera de los indicados)
+			Modifican funcionamiento de la busqueda
+				(Se recomienda ponerlas las primeras para evitar errores de sintaxis)
+				
+				-L (sigue los enlaces simbólicos) (-follow está obsoleto)
+				-maxdepth número (límite de profundidad de subdirectorios)
+			
+			Ejecutan comando
+				-exec
+					Ejecuta un comando con lo que has encontrado en find, el comando tiene que acabar con un ; acotado (\;)
+				-print
+					muestra el nombre del elemento ( con -exec no lo muestra, con la busqueda normal si)
+				-exec {} comando hace el comando con lo que encuentra el find	
