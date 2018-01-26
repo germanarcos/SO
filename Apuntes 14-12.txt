@@ -1,0 +1,38 @@
+Parámetros posicionales
+
+Cogen los valores del parametro que se introduzca a la hora de introducir el script
+dir/script mas vale tarde
+
+dir/script $1 $2 $3
+
+La variable # Cogera el numero de parametros posicionales que has introducido
+La variable * es la lista de parámetros que has introducido.
+
+Bucles
+for, while
+
+for VAR in lista de parametros 
+do
+	haz algo con $VAR
+done
+
+// Trabaja con todo lo que encuentra en: lista de parametros
+seq x y z
+de x hasta z aumentando de y en y
+seq x
+de 1 hasta x de 1 en 1
+seq x y
+de x hasta y de 1 en 1
+
+
+
+while
+	condicion
+do
+
+
+done
+crear un contador y compararlo con el numero de parametros posicionales
+
+eliminar parametros posicionales con el comando shift, para siempre trabajar con el $1
+como el shift borra un parametro la condicion deberia ser $#(numero de parametros posicionales)>0
